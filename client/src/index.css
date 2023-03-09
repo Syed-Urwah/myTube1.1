@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .gray-button{
+        @apply bg-[#2d2b2b] px-2 py-1 rounded-2xl
+    }
+}

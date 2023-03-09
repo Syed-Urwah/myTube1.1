@@ -1,0 +1,26 @@
+{
+    "_id": {
+      "$oid": ""
+    },
+    "userId": "",
+    "title": "",
+    "desc": "",
+    "imgUrl": "",
+    "videoUrl": "",
+    "views": 18,
+    "category": "",
+    "tags": [],
+    "likes": [],
+    "dislikes": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1677788169917"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1678119260007"
+      }
+    },
+    "__v": 0
+  }
