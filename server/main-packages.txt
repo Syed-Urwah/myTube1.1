@@ -1,0 +1,4 @@
+//these all are the third party packages used in this projects
+bcrypt.js  //to secure password
+jwt         // to save a unique token of each user on login OR verify the user by jwt.verify() method   
+cookie-parser   //to store the jwt token in cookie
