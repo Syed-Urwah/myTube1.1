@@ -233,8 +233,8 @@ export default function VideoForm(props) {
     return (
         <form onSubmit={addVideo} className='w-4/5 pt-10 rounded flex flex-col gap-5 '>
             <label className='block text-4xl' htmlFor="title">Title</label>
-            <div id="first-row" className='w-4/5 flex justify-between'>
-                <input required onChange={(e) => setTitle(e.target.value)} value={title} className='w-4/5 border-2 border-solid border-gray-600 rounded-md' type="text" id='title' />
+            <div id="first-row" className='sm:w-4/5 flex gap-4 flex-wrap w-full'>
+                <input required onChange={(e) => setTitle(e.target.value)} value={title} className='sm:w-4/5 w-full border-2 border-solid border-gray-600 rounded-md' type="text" id='title' />
                 <div className="flex flex-col">
                     {/* <label htmlFor="category">Category</label> */}
                     <select
