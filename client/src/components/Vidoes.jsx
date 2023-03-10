@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import thumbnail from "../assets/thumbnail.jpg";
-import channelPic from '../assets/channel.jpg'
 import VideoCard from "./VideoCard";
 import axios from "axios";
 import PuffLoader from "react-spinners/PuffLoader";
@@ -51,7 +50,7 @@ export default function Vidoes({type,category}) {
       Object.keys(videos).length !== 0 ? videos.map((e)=>{
         return <VideoCard key={e._id} data={e}/>
       }): <h2 className="text-white m-auto">Kindly Subscribed any Channel to see their videos</h2>
-      : "login to see subscribed videos"
+      : `login to see ${type ? type : category} videos`
       
       }
 

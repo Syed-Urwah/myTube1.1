@@ -22,7 +22,7 @@ export default function VideoCard({data, setEdit}) {
 
     
   async function fetchChannel(){
-    const res = await axios.get(`http://localhost:8000/api/user/find/${data.userId}`);
+    const res = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/find/${data.userId}`);
     setChannel(res.data)
     console.log(res.data)
   }
@@ -32,7 +32,7 @@ export default function VideoCard({data, setEdit}) {
     try {
       const response = await axios({
         method: 'delete',
-        url: `http://localhost:8000/api/video/delete/${data._id}`,
+        url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/delete/${data._id}`,
         headers:{
           'access_token': localStorage.getItem('auth-token')
         }
