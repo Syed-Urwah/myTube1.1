@@ -69,7 +69,7 @@ export default function SignupCard() {
     try {
       const response = await axios({
         method: 'post',
-        url: "http://localhost:8000/api/auth/signup",
+        url: "https://my-tube-server-git-master-syed-urwah.vercel.app/api/auth/signup",
         data: signup
       })
       console.log(response.data);
@@ -90,7 +90,7 @@ export default function SignupCard() {
     try {
     const response = await axios({
       method: 'post',
-      url: 'http://localhost:8000/api/auth/login',
+      url: 'https://my-tube-server-git-master-syed-urwah.vercel.app/api/auth/login',
       headers: {
         'Content-Type':  'application/json'
       },
@@ -117,7 +117,7 @@ export default function SignupCard() {
         const googleResponse = await signInWithPopup(auth, provider);
         console.log(googleResponse.user)
         dispatch(loginStart())
-        const res = await axios.post('http://localhost:8000/api/auth/google', {
+        const res = await axios.post('https://my-tube-server-git-master-syed-urwah.vercel.app/api/auth/google', {
           name: googleResponse.user.displayName,
           email: googleResponse.user.email,
           img: googleResponse.user.photoURL

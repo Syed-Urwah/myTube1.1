@@ -51,23 +51,23 @@ export default function SingleVideo() {
     const fetchVideo = async () =>{
         try {
             setLoading(true)
-            const response = await axios.get(`http://localhost:8000/api/video/fetchVideo/${id}`)
+            const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/fetchVideo/${id}`)
             let data = await response.data
             setVideo(data);
             console.log(video)
 
             //getting recommended videos
-            const recRes = await axios.get(`http://localhost:8000/api/video/tags?tag=${data.tags}`)
+            const recRes = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/tags?tag=${data.tags}`)
             console.log(recRes.data)
             setRecVideos(recRes.data);
 
             //get same category videos
-            const catg = await axios.get(`http://localhost:8000/api/video/category?catg=${data.category}`);
+            const catg = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/category?catg=${data.category}`);
             console.log(catg)
             setCatgVideos(catg.data)
 
             //getting user of the video
-            const res = await axios.get(`http://localhost:8000/api/user/find/${data.userId}`)
+            const res = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/find/${data.userId}`)
             setUser(res.data);
             console.log(res.data._id)
 
@@ -118,7 +118,7 @@ export default function SingleVideo() {
     const updatingHistory = async () =>{
         const response = await axios({
             method: 'put',
-            url: `http://localhost:8000/api/user/history/${id}`,
+            url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/history/${id}`,
             headers:{
                 'access_token': localStorage.getItem('auth-token')
             }
@@ -128,7 +128,7 @@ export default function SingleVideo() {
 
     //increasing the video views by 1
     const increaseVideViews = async () =>{
-        const response = await axios.put(`http://localhost:8000/api/video/views/${id}`)
+        const response = await axios.put(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/views/${id}`)
         
         console.log(response.data);
     }
@@ -137,7 +137,7 @@ export default function SingleVideo() {
     async function handleSubscribe (){
             const response = await axios({
                 method: 'put',
-                url: `http://localhost:8000/api/user/sub/${user._id}`,
+                url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/sub/${user._id}`,
                 headers: {
                     'access_token': localStorage.getItem('auth-token')
                 }, 
@@ -157,7 +157,7 @@ export default function SingleVideo() {
         if(Object.keys(currentUser).length !== 0){
             const response = await axios({
                 method: 'put',
-                url: `http://localhost:8000/api/user/unsub/${user._id}`,
+                url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/unsub/${user._id}`,
                 headers: {
                     'access_token': localStorage.getItem('auth-token')
                 }, 
@@ -180,7 +180,7 @@ export default function SingleVideo() {
         if(Object.keys(currentUser).length !== 0){
             const response = await axios({
                 method: 'put',
-                url: `http://localhost:8000/api/user/like/${video._id}`,
+                url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/like/${video._id}`,
                 headers: {
                     'access_token': localStorage.getItem('auth-token')
                 }, 
@@ -205,7 +205,7 @@ export default function SingleVideo() {
     const handleDisLike = async () =>{
         const response = await axios({
             method: 'put',
-            url: `http://localhost:8000/api/user/unlike/${video._id}`,
+            url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/unlike/${video._id}`,
             headers: {
                 'access_token': localStorage.getItem('auth-token')
             }, 
@@ -230,7 +230,7 @@ export default function SingleVideo() {
     const handleWatchLater = async () =>{
         const response = await axios({
             method: 'put',
-            url: `http://localhost:8000/api/user/watch-later/${video._id}`,
+            url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/watch-later/${video._id}`,
             headers: {
                 'access_token': localStorage.getItem('auth-token')
             }, 

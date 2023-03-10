@@ -12,7 +12,7 @@ export default function History() {
         setLoading(true);
         const response = await axios({
             method: 'get',
-            url: 'http://localhost:8000/api/video/history',
+            url: 'https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/history',
             headers:{
                 'access_token': localStorage.getItem('auth-token')
             }

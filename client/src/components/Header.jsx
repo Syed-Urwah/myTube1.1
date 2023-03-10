@@ -2,15 +2,15 @@ import React,{useState} from "react";
 import logo from "../assets/YouTube-Logo.wine.svg";
 import bar from "../assets/hamburgerDark.png";
 import video from '../assets/add-video.png'
-import profilePic from '../assets/profile.jpg'
 import searchIcon from '../assets/search.svg'
 import leftArrow from '../assets/arrow-left.svg'
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import ModalCreateVideo from "./ModalCreateVideo";
 import {useDispatch, useSelector} from 'react-redux'
 import { videoQuery } from "../redux/user/CurrentUserSlice";
 import IconMenu from "./IconMenu";
+import picpeople from '../assets/picpeople.svg'
+
 
 export default function Header() {
 
@@ -90,7 +90,11 @@ export default function Header() {
             <input onKeyDown={handleSearch} onChange={(e)=>setSearchValue(e.target.value)} className={`md:w-96 sm:w-60 sm:block w-4/5 ${searchBox ? 'block' : 'hidden'} h-10 rounded-full pl-2 text-white border-[#1c1c1c] outline-none border-solid border-2 bg-transparent focus:border-white`} autoFocus={searchBox} placeholder="Search" type="text" name="search" id="search-box" />
         </div>
 
-        {Object.keys(currentUser).length === 0 ? "login" : 
+        {Object.keys(currentUser).length === 0 ? 
+          <Link to="/signup" className="signin-button flex justify-around border-solid border-2 border-sky-500 py-2 px-2">
+              <img className="w-6" src={picpeople} alt="" />
+              <h4>SIGN IN</h4>
+          </Link> : 
         <div className={`profile ${!searchBox ? 'flex' : 'hidden'} gap-5 h-full items-center`}>
             <img onClick={handleSearchDisplay} className="w-5 sm:hidden hover:cursor-pointer" src={searchIcon} alt="" />
             <Link to='/createVideo'>

@@ -70,7 +70,7 @@ export default function VideoForm(props) {
     const [editVideo, setEditVideo] = useState({});
 
     const fetchVideo = async () => {
-        const response = await axios.get(`http://localhost:8000/api/video/fetchVideo/${id}`)
+        const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/fetchVideo/${id}`)
         console.log(response.data);
         setEditVideo(response.data);
         setTitle(response.data.title); setDesc(response.data.desc); setCategory(response.data.category); setTags(response.data.tags); setImgUrl(response.data.imgUrl)
@@ -121,7 +121,7 @@ export default function VideoForm(props) {
         if (location.pathname === '/createVideo') {
             const response = await axios({
                 method: 'post',
-                url: 'http://localhost:8000/api/video/addVideo',
+                url: 'https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/addVideo',
                 headers: {
                     'Content-Type': 'application/json',
                     'access_token': localStorage.getItem('auth-token')
@@ -144,7 +144,7 @@ export default function VideoForm(props) {
         } else {
             const response = await axios({
                 method: 'put',
-                url: `http://localhost:8000/api/video/update/${id}`,
+                url: `https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/update/${id}`,
                 headers: {
                     'access_token': localStorage.getItem('auth-token')
                 },

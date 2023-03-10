@@ -12,7 +12,7 @@ export default function Search() {
 
   const fetchVideos = async () =>{
     setLoading(true);
-    const response = await axios.get(`http://localhost:8000/api/video/search?q=${query}`);
+    const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/search?q=${query}`);
     setVideos(response.data);
     console.log(response.data);
     setLoading(false)

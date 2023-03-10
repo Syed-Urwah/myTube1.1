@@ -12,16 +12,17 @@ export default function Vidoes({type,category}) {
   const [videos, setVideos] = useState([]);
   const [loading , setLoading] = useState(true)
   const {currentUser} = useSelector((state)=>state.user)
+  
 
   async function getVideos(){
     setLoading(true);
     if(!type){
-      const response = await axios.get(`http://localhost:8000/api/video/category?catg=${category}`)
+      const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/category?catg=${category}`)
       setVideos(response.data);
     
     
     }else{
-      const response = await axios.get(`http://localhost:8000/api/video/${type}`,{
+      const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/${type}`,{
       headers:{
         'access_token': localStorage.getItem('auth-token')
       }
@@ -29,10 +30,7 @@ export default function Vidoes({type,category}) {
       setVideos(response.data);
       console.log(response)
     }
-    //stop loading
-    setTimeout(()=>{
-      setLoading(false)
-    },500)
+    setLoading(false)
   }
 
 

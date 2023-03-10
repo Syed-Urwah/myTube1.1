@@ -14,7 +14,7 @@ export default function YourVideo() {
 
     const fetchVideos = async () =>{
         setLoading(true);
-        const response = await axios.get(`http://localhost:8000/api/video/userVideo/${currentUser._id}`)
+        const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/video/userVideo/${currentUser._id}`)
         console.log(response.data);
         setVideos(response.data)
         setLoading(false);
