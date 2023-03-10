@@ -24,7 +24,7 @@ export default function Comments(props) {
 
 
   const fetchComments = async () =>{
-    const response = await axios.get(`http://localhost:8000/api/comment/${params.id}`)
+    const response = await axios.get(`https://my-tube-server.vercel.app/api/comment/${params.id}`)
     let data = response.data;
     console.log(data)
     setComment(data);
@@ -34,7 +34,7 @@ export default function Comments(props) {
   const addComment = async () =>{
     const response = await axios({
       method: 'post',
-      url: `http://localhost:8000/api/comment/add/${params.id}`,
+      url: `https://my-tube-server.vercel.app/api/comment/add/${params.id}`,
       headers: {
           'access_token': localStorage.getItem('auth-token')
       },
