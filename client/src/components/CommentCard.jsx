@@ -8,7 +8,7 @@ export default function CommentCard(props) {
     const [user,setUser]=useState({});
 
     const fetchUser = async () =>{
-        const response = await axios.get(`http://localhost:8000/api/user/find/${props.comment.userId}`);
+        const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/find/${props.comment.userId}`);
         let data = await response.data;
         setUser(data);
         console.log(data);

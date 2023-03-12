@@ -10,7 +10,7 @@ export default function RecommendedCard({video}) {
 
 
   const fetchUser = async () =>{
-    const response = await axios.get(`http://localhost:8000/api/user/find/${video.userId}`)
+    const response = await axios.get(`https://my-tube-server-git-master-syed-urwah.vercel.app/api/user/find/${video.userId}`)
     setUser(response.data);
   }
 
